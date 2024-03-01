@@ -29,6 +29,12 @@ public class Runigram {
 		imageOut = grayScaled(tinypic);
 		System.out.println();
 		print(imageOut);
+
+		// Tests the scaling of an image:
+		imageOut = scaled(tinypic, 5, 3);
+		System.out.println();
+		print(imageOut);
+
 		//// Write here whatever code you need in order to test your work.
 		//// You can reuse / overide the contents of the imageOut array.
 	}
