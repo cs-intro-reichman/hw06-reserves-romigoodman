@@ -6,9 +6,7 @@ import java.awt.Color;
 public class Runigram {
 
 	public static void main(String[] args) {
-	    
-		//// Hide / change / add to the testing code below, as needed.
-		
+			
 		// Tests the reading and printing of an image:	
 		Color[][] tinypic = read("tinypic.ppm");
 		print(tinypic);
@@ -22,27 +20,43 @@ public class Runigram {
 		System.out.println();
 		print(imageOut);
 		
+		// Tests the Verical flipping of an image:
+		imageOut = flippedVertically(tinypic);
+		System.out.println();
+		print(imageOut);
+
+		// Tests the greyscaling of an image
+		imageOut = grayScaled(tinypic);
+		System.out.println();
+		print(imageOut);
 		//// Write here whatever code you need in order to test your work.
 		//// You can reuse / overide the contents of the imageOut array.
 	}
 
 	/** Returns a 2D array of Color values, representing the image data
 	 * stored in the given PPM file. */
-	public static Color[][] read(String fileName) {
+	public static Color[][] read(String fileName) 
+	{
 		In in = new In(fileName);
 		// Reads the file header, ignoring the first and the third lines.
 		in.readString();
 		int numCols = in.readInt();
 		int numRows = in.readInt();
-		in.readInt();
+		int toskip = in.readInt();
 		// Creates the image array
 		Color[][] image = new Color[numRows][numCols];
 		// Reads the RGB values from the file, into the image array. 
-		// For each pixel (i,j), reads 3 values from the file,
-		// creates from the 3 colors a new Color object, and 
-		// makes pixel (i,j) refer to that object.
-		//// Replace the following statement with your code.
-		return null;
+		for (int i=0; i<numRows; i++)
+		{
+			for (int j=0; j<numCols; j++)
+			{
+				int redColor = in.readInt(); // For each pixel (i,j), reads 3 values from the file,
+				int greenColor = in.readInt();
+				int blueColor = in.readInt();
+				image[i][j]= new Color(redColor, greenColor, blueColor); // creates from the 3 colors a new Color object, and makes pixel (i,j) refer to that object.
+			}
+		}
+		return image;
 	}
 
     // Prints the RGB values of a given color.
@@ -54,55 +68,99 @@ public class Runigram {
         System.out.print(")  ");
 	}
 
-	// Prints the pixels of the given image.
 	// Each pixel is printed as a triplet of (r,g,b) values.
 	// This function is used for debugging purposes.
 	// For example, to check that some image processing function works correctly,
 	// we can apply the function and then use this function to print the resulting image.
-	private static void print(Color[][] image) {
-		//// Replace this comment with your code
-	}
-	
-	/**
-	 * Returns an image which is the horizontally flipped version of the given image. 
-	 */
+	private static void print(Color[][] image) 
+		{
+			 // Prints the pixels of the given image.
+			 for (int i=0; i<image.length; i++)
+			 {
+				 for (int j=0; j<image[0].length; j++)
+				 {
+					print(image[i][j]);
+				 }
+					System.out.println();
+			 }
+		}
+
+
 	public static Color[][] flippedHorizontally(Color[][] image) {
-		//// Replace the following statement with your code
-		return null;
+		Color[][] imageFliipedHorizontally = new Color[image.length][image[0].length];
+		for (int i=0; i<image.length; i++)
+		{
+			for (int j=0; j<image[0].length; j++)
+			{ //calculates its corresponding position in the flipped image by reversing the order of columns
+				imageFliipedHorizontally[i][j]=image[i][image[0].length-1-j];
+			}
+		}
+ 
+		return imageFliipedHorizontally;
 	}
 	
-	/**
-	 * Returns an image which is the vertically flipped version of the given image. 
-	 */
+
 	public static Color[][] flippedVertically(Color[][] image){
-		//// Replace the following statement with your code
-		return null;
+		Color[][] imageFliipedHVertically = new Color[image.length][image[0].length];
+		for (int i=0; i<image.length; i++)
+		{
+			for (int j=0; j<image[0].length; j++)
+			{
+			imageFliipedHVertically[i][j]=image[image.length-1-i][j];
+			}
+			}
+ 
+		return imageFliipedHVertically;
 	}
 	
 	// Computes the luminance of the RGB values of the given pixel, using the formula 
 	// lum = 0.299 * r + 0.587 * g + 0.114 * b, and returns a Color object consisting
 	// the three values r = lum, g = lum, b = lum.
-	public static Color luminance(Color pixel) {
-		//// Replace the following statement with your code
-		return null;
-	}
+	public static Color luminance(Color pixel)
+	{
+		int r = pixel.getRed();
+		int g = pixel.getGreen();
+		int b = pixel.getBlue();
+		int luminance = (int)(0.299 * r + 0.587 * g + 0.114 * b);
 	
+		return new Color(luminance, luminance, luminance);
+	}
+			
 	/**
 	 * Returns an image which is the grayscaled version of the given image.
 	 */
 	public static Color[][] grayScaled(Color[][] image) {
-		//// Replace the following statement with your code
-		return null;
-	}	
+	Color[][] greyScaled = new Color[image.length][image[0].length];
+	for (int i=0; i<image.length; i++)
+		{
+			for (int j=0; j<image[0].length; j++)
+			{
+				greyScaled[i][j]= luminance(image[i][j]);
+			}
+		}
+		return greyScaled;
+	}
 	
 	/**
 	 * Returns an image which is the scaled version of the given image. 
 	 * The image is scaled (resized) to have the given width and height.
 	 */
 	public static Color[][] scaled(Color[][] image, int width, int height) {
-		//// Replace the following statement with your code
-		return null;
-	}
+		Color[][] imageScaled = new Color[height][width];
+		int originalWidth=image[0].length;
+		int orginialHeight = image.length;
+		int scalerFactori=orginialHeight/height;
+		int scalerFactorj=originalWidth/width;
+		for (int i=0; i<imageScaled.length; i++)
+			{
+				for (int j=0; j<imageScaled[0].length; j++)
+				{
+					imageScaled[i][j]= image[i*(scalerFactori)][j*(scalerFactorj)];
+				}
+			}
+			return imageScaled;
+		}		
+	
 	
 	/**
 	 * Computes and returns a blended color which is a linear combination of the two given
