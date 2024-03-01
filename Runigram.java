@@ -203,7 +203,7 @@ public class Runigram {
 	/** Creates a canvas for the given image. */
 	public static void setCanvas(Color[][] image) {
 		StdDraw.setTitle("Runigram 2023");
-		int height = image.length;
+		int height = image.length; //cfjefejjf
 		int width = image[0].length;
 		StdDraw.setCanvasSize(height, width);
 		StdDraw.setXscale(0, width);
