@@ -35,6 +35,11 @@ public class Runigram {
 		System.out.println();
 		print(imageOut);
 
+		// Tests the blending of two colors:
+		imageOut = blend(null, null, 5);
+		System.out.println();
+		print ();
+
 		//// Write here whatever code you need in order to test your work.
 		//// You can reuse / overide the contents of the imageOut array.
 	}
@@ -176,8 +181,19 @@ public class Runigram {
 	 */
 	public static Color blend(Color c1, Color c2, double alpha) {
 		// double blend = new Color( alpha*c1 + (1-alpha)*c2 );	
-	
-		return null;
+		int secoundColorR = c2.getRed();
+		int secoundColorG = c2.getGreen();
+		int secoundColorB = c2.getBlue();
+		
+		int firstColorR = c1.getRed();
+		int firstColorG = c1.getGreen();
+		int firstColorB = c1.getBlue();
+
+		int blendedColourR= (int)((double)(alpha*firstColorR) + ((double)((1-alpha)*secoundColorR)));
+		int blendedColourG= (int)((double)(alpha*firstColorG) + ((double)((1-alpha)*secoundColorG)));
+		int blendedColourB= (int)((double)(alpha*firstColorB) + ((double)((1-alpha)*secoundColorB)));
+
+		return new Color(blendedColourR, blendedColourG, blendedColourB);
 	}
 	
 	/**
