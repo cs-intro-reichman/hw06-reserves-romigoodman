@@ -155,13 +155,13 @@ public class Runigram {
 		Color[][] imageScaled = new Color[height][width];
 		int originalWidth=image[0].length;
 		int orginialHeight = image.length;
-		int scalerFactori=orginialHeight/height;
-		int scalerFactorj=originalWidth/width;
+		double scalerFactori=(double)orginialHeight/height;
+		double scalerFactorj=(double)originalWidth/width;
 		for (int i=0; i<imageScaled.length; i++)
 			{
 				for (int j=0; j<imageScaled[0].length; j++)
 				{
-					imageScaled[i][j]= image[i*(scalerFactori)][j*(scalerFactorj)];
+					imageScaled[i][j]= image[(int)(i*(scalerFactori))][(int)(j*(scalerFactorj))];
 				}
 			}
 			return imageScaled;
