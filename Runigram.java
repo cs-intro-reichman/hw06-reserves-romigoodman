@@ -48,7 +48,7 @@ public class Runigram {
 		in.readString();
 		int numCols = in.readInt();
 		int numRows = in.readInt();
-		int toskip = in.readInt();
+		in.readInt();
 		// Creates the image array
 		Color[][] image = new Color[numRows][numCols];
 		// Reads the RGB values from the file, into the image array. 
