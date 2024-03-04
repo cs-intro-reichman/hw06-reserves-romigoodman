@@ -167,7 +167,7 @@ public class Runigram {
 			return imageScaled;
 		}		
 	
-	
+
 	/**
 	 * Computes and returns a blended color which is a linear combination of the two given
 	 * colors. Each r, g, b, value v in the returned color is calculated using the formula 
@@ -175,7 +175,8 @@ public class Runigram {
 	 * values in the two input color.
 	 */
 	public static Color blend(Color c1, Color c2, double alpha) {
-		//// Replace the following statement with your code
+		// double blend = new Color( alpha*c1 + (1-alpha)*c2 );	
+	
 		return null;
 	}
 	
