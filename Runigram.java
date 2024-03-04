@@ -35,10 +35,6 @@ public class Runigram {
 		System.out.println();
 		print(imageOut);
 
-		// Tests the blending of two colors:
-		imageOut = blend(null, null, 5);
-		System.out.println();
-		print ();
 
 		//// Write here whatever code you need in order to test your work.
 		//// You can reuse / overide the contents of the imageOut array.
@@ -200,11 +196,18 @@ public class Runigram {
 	 * Cosntructs and returns an image which is the blending of the two given images.
 	 * The blended image is the linear combination of (alpha) part of the first image
 	 * and (1 - alpha) part the second image.
-	 * The two images must have the same dimensions.
 	 */
 	public static Color[][] blend(Color[][] image1, Color[][] image2, double alpha) {
-		//// Replace the following statement with your code
-		return null;
+		Color[][] imageBlended = new Color[image1.length][image1[0].length]; //The two images must have the same dimensions.
+		for (int i=0; i<imageBlended.length; i++)
+		{
+			for (int j=0; j<imageBlended[0].length; j++)
+			{
+				imageBlended[i][j]= blend(image1[i][j], image2[i][j], alpha);
+			}
+		}
+
+		return imageBlended;
 	}
 
 	/**
@@ -214,7 +217,11 @@ public class Runigram {
 	 * of the source image.
 	 */
 	public static void morph(Color[][] source, Color[][] target, int n) {
-		//// Replace this comment with your code
+		//if source matrix is not the same as target matrix
+		//create a new array thats called updated source and run for loop that puts the source in size of the target - but how?
+		//once dimentions are the same: we can start morphing
+
+		
 	}
 	
 	/** Creates a canvas for the given image. */
