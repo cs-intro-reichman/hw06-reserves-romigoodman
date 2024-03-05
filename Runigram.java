@@ -34,6 +34,7 @@ public class Runigram {
 		// imageOut = scaled(tinypic, 5, 3);
 		// System.out.println();
 		// print(imageOut);
+		//chdcddhcdh
 
 
 		//// Write here whatever code you need in order to test your work.
