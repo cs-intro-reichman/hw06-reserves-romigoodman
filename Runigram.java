@@ -7,33 +7,33 @@ public class Runigram {
 
 	public static void main(String[] args) {
 			
-		// Tests the reading and printing of an image:	
-		Color[][] tinypic = read("tinypic.ppm");
-		print(tinypic);
+		// // Tests the reading and printing of an image:	
+		// Color[][] tinypic = read("tinypic.ppm");
+		// print(tinypic);
 
-		// Creates an image which will be the result of various 
-		// image processing operations:
-		Color[][] imageOut;
+		// // Creates an image which will be the result of various 
+		// // image processing operations:
+		// Color[][] imageOut;
 
-		// Tests the horizontal flipping of an image:
-		imageOut = flippedHorizontally(tinypic);
-		System.out.println();
-		print(imageOut);
+		// // Tests the horizontal flipping of an image:
+		// imageOut = flippedHorizontally(tinypic);
+		// System.out.println();
+		// print(imageOut);
 		
-		// Tests the Verical flipping of an image:
-		imageOut = flippedVertically(tinypic);
-		System.out.println();
-		print(imageOut);
+		// // Tests the Verical flipping of an image:
+		// imageOut = flippedVertically(tinypic);
+		// System.out.println();
+		// print(imageOut);
 
-		// Tests the greyscaling of an image
-		imageOut = grayScaled(tinypic);
-		System.out.println();
-		print(imageOut);
+		// // Tests the greyscaling of an image
+		// imageOut = grayScaled(tinypic);
+		// System.out.println();
+		// print(imageOut);
 
-		// Tests the scaling of an image:
-		imageOut = scaled(tinypic, 5, 3);
-		System.out.println();
-		print(imageOut);
+		// // Tests the scaling of an image:
+		// imageOut = scaled(tinypic, 5, 3);
+		// System.out.println();
+		// print(imageOut);
 
 
 		//// Write here whatever code you need in order to test your work.
